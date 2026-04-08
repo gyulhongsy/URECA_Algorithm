@@ -9,15 +9,17 @@
 
 #### java에서 구현한 코드 (재귀 함수 사용)
 ```
-public static void dfs(int v) {
-  visited[v] = true;
-  System.out.print(v + " ");
-
-  for (int next : graph.get(v)) {
-    if (!visited[next]) {
-      dfs(next);
-    }
+public static void DFS(int v) {
+  if (isVisited[v] == false) {
+      System.out.print(v + " ");
+      isVisited[v] = true;
   }
+
+  for (int i = 0;, i < graph[v].size(); i=++) {
+    if (isVisited[graph[v].get(i)]) continue;
+    DFS(graph[v].get(i));
+  }
+}
 ```
 ---
 ### BFS (Breath-First Search): 너비 우선 탐색
@@ -29,20 +31,19 @@ public static void dfs(int v) {
 
 #### java에서 구현한 코드
 ```
-public void static bfs(int start) {
-  Queue<Integer> que = new LinkedList<>();
-  que.offer(start);
-  visited[start] = true;
+public void static BFS(int root) {
+  Queue<Integer> que = new LinkedList<Integer>();
+  que.add(root);
+  isVisited[root] = true;
 
   while (!que.inEmpty()) {
     int v = que.poll();
     System.out.print(v + " ");
 
-    for (int next : graph.get(v)) {
-      if (!visited[next]) {
-        que.offer(next);
-        visited[next] = true;
-      }
+    for (int i = 0; i < graph[v].size(); i++) {
+      if (isVisited[graph[v].get(i)] == true) continue;
+      que.add(graph[v].get(i));
+      isVisited[graph[v].get(i)] = true;
     }
   }
 }
