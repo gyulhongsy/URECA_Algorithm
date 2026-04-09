@@ -1,5 +1,5 @@
 # URECA_Algorithm
-JAVA
+언어: JAVA
 ## 공부 목표
 - 알고리즘 개념 학습
 - 알고리즘 유형별 문제 풀이
