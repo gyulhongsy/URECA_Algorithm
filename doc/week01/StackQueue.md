@@ -26,7 +26,7 @@ stack.dump(); // 스택의 모든 데이터를 가장 아래부터 순서대로 
 ```
 
 #### 사용 예시
-이전에 재귀로 구현하였던 dfs 알고리즘을 스택으로 다시 구현
+이전 백준 문제 풀이에서 재귀로 구현하였던 dfs 알고리즘을 스택으로 다시 구현하였다.
 ```
 public static void dfs(int start) {
 		Stack<Integer> stack = new Stack<>();
@@ -51,3 +51,49 @@ public static void dfs(int start) {
 ---
 ###  Queue (큐)
 
+#### 개념
+- **FIFO (First In First Out)** 구조
+- 먼저 들어온 데이터가 먼저 나감
+- 가까운 노드부터 탐색하기 위해 필요
+- 프런트(front): 논리적인 맨 앞 요소의 인덱스
+- 리어(rear): 논리적인 맨 뒤 요소 하나 뒤의 인덱스 (다음 요소를 인큐할 인덱스)
+
+#### Queue 주요 메서드 (java 예시)
+```
+import java.util.*;
+
+Queue<Integer> queue = new LinkedList<>();
+
+queue.enque(1);
+queue.enque(2); // 데이터 삽입
+
+queue.deque(2); // 데이터 삭제
+queue.clear(); // 큐를 비움
+queue.indexOf(x); // 큐에서 x를 찾아 인덱스 반환 (없으면 -1)
+queue.size(); // 큐의 데이터 갯수 반환
+queue.isEmpty(); // 큐가 비어있는지
+queue.dump(); // 큐의 모든 데이터를 프런트 -> 리어 순으로 반환
+```
+
+#### 사용 예시
+이전 백준 문제 풀이 당시 큐를 사용하여 bfs 알고리즘을 구현하였다.
+```
+static void bfs(int start) {
+		Queue<Integer> que = new LinkedList<Integer>();
+		
+		que.add(start);
+		isVisited[start] = true;
+		
+		while (!que.isEmpty()) {
+			int v = que.poll();
+			sb.append(v).append(" ");
+			
+			for (int node = 1; node <= N; node++) {
+				if (graph[v][node] == 1 && !isVisited[node]) {
+					que.offer(node);
+					isVisited[node] = true;
+				}
+			}
+		}
+	}
+```
