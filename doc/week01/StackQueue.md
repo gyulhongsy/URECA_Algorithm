@@ -19,10 +19,10 @@ stack.push(2);
 stack.pop(); // 제거 - 가장 나중에 들어온 데이터가 제거됨
 stack.peek(); // 가장 위에 있는 데이터 확인
 stack.clear(); // 스택의 모든 요소 삭제
-stack.indexOf(x); // 스택에서 x를 찾아 인덱스 반환 (없으면 -1)
+stack.search(x); // 스택에서 x를 찾아 인덱스 반환 (없으면 -1)
 stack.size(); // 스택의 데이터 갯수 반환
 stack.isEmpty(); // 스택이 비어있는지
-stack.dump(); // 스택의 모든 데이터를 가장 아래부터 순서대로 출력
+System.out.println(stack); // 스택 출력
 ```
 
 #### 사용 예시
@@ -64,15 +64,21 @@ import java.util.*;
 
 Queue<Integer> queue = new LinkedList<>();
 
-queue.enque(1);
-queue.enque(2); // 데이터 삽입
+queue.offer(1); //데이터 삽입
+queue.add(2); // 데이터 삽입
+queue.poll(); // 데이터 삭제
+queue.remove(); // 데이터 삭제
 
-queue.deque(2); // 데이터 삭제
+queue.peek(); // 큐의 맨 요소 반환 (front)
 queue.clear(); // 큐를 비움
-queue.indexOf(x); // 큐에서 x를 찾아 인덱스 반환 (없으면 -1)
 queue.size(); // 큐의 데이터 갯수 반환
 queue.isEmpty(); // 큐가 비어있는지
-queue.dump(); // 큐의 모든 데이터를 프런트 -> 리어 순으로 반환
+System.out.println(queue); // 큐 출력
+
+// 큐를 LinkedList 타입으로 선언하면 front와 rear를 얻을 수 있음
+LinkedList<Integer> que = new LinkedList<>();
+que.getFirst(); // front
+que.getLast(); // rear
 ```
 
 #### 사용 예시
