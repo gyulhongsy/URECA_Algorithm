@@ -24,3 +24,6 @@
 | 260413(월) | 자바 컬렉션 기반 자료구조 정리 | [TIL](./doc/week02/DS_Collection.md) |
 | 260415(수) | 백준 16935, 1244번 문제 풀이 | [16935](./doc/week02/bj_16935.md), [1244](./doc/week02/bj_1244.md) |
 | 260416(목) | 그리디 알고리즘 개념 정리, 백준 문제 풀이 | [TIL](./doc/week02/Greedy.md) |
+| 260417(금) | 재귀 정리, 백준 문제 풀이 | [TIL](./doc/week02/Recursion.md) |
+| 260420(월) | 순열 정리와 예제 문제 풀이, 백준 14888번 문제 풀 | [TIL](./doc/week03/Permutation.md), [14888](./doc/week03/bj_14888.md) |
+
