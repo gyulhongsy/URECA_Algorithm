@@ -26,4 +26,4 @@
 | 260416(목) | 그리디 알고리즘 개념 정리, 백준 문제 풀이 | [TIL](./doc/week02/Greedy.md) |
 | 260417(금) | 재귀 개념 정리, 백준 문제 풀이 | [TIL](./doc/week02/Recursion.md) |
 | 260420(월) | 순열 개념 정리와 예제 문제 풀이, 백준 문제 풀이 | [TIL](./doc/week03/Permutation.md), [14888](./doc/week03/bj_14888.md) |
-| 260421(화) | 조합과 부분조합 정리, 백준 문제 풀이 | 
+| 260421(화) | 조합과 부분조합 정리, 백준 문제 풀이 | [조합](./doc/week03/Combination.md), [부분조합](./doc/week03/Subset.md), [15686](./doc/week03/bj_15686.md) |
