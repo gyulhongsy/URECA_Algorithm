@@ -5,14 +5,22 @@
 - 알고리즘 유형별 문제 풀기
 
 ## 학습 계획
+- [x] Array
+- [x] 시뮬레이션
+- [x] Stack, Queue
+- [x] 순열, 재귀
+- [x] 조합, 부분집합
+- [x] 정렬
+- [ ] 브루트-포스, 보이어-무어, KMP
+- [ ] Tree List, DisjointSet(Union/Find)
+- [ ] Graph
 - [x] DFS / BFS
-- [ ] 백트래킹
-- [ ] 정렬 / 구현
-- [ ] 그리디
-- [ ] 이분 탐색
-- [x] 자료구조
-- [ ] 그래프 (최단 경로)
-- [ ] DP
+- [ ] Dijksta, Bellman-Ford
+- [ ] BackTracking, simulation
+- [ ] Dynamic Programming
+- [x] Greedy
+- [ ] 분할정복
+- [ ] MST, Kruskal, Prim
 
 ## 학습 기록
 | 날짜 | 내용 | 비고 |
@@ -26,4 +34,4 @@
 | 260416(목) | 그리디 알고리즘 개념 정리, 백준 문제 풀이 | [TIL](./doc/week02/Greedy.md) |
 | 260417(금) | 재귀 개념 정리, 백준 문제 풀이 | [TIL](./doc/week02/Recursion.md) |
 | 260420(월) | 순열 개념 정리와 예제 문제 풀이, 백준 문제 풀이 | [TIL](./doc/week03/Permutation.md), [14888](./doc/week03/bj_14888.md) |
-| 260421(화) | 조합과 부분조합 정리, 백준 문제 풀이 | [조합](./doc/week03/Combination.md), [부분조합](./doc/week03/Subset.md), [15686](./doc/week03/bj_15686.md) |
+| 260421(화) | 조합과 부분집합 정리, 백준 문제 풀이 | [조합](./doc/week03/Combination.md), [부분집합](./doc/week03/Subset.md), [15686](./doc/week03/bj_15686.md) |
