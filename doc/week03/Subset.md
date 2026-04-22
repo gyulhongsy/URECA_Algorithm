@@ -51,8 +51,6 @@
 
 ## 정답 코드 (java)
 ```
-package f_subset;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -60,7 +58,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class Main_BJ_2961_도영이가만든맛있는음식 {
+public class Main {
 
 	static int N;
 	static List<int[]> items = new ArrayList<>();
