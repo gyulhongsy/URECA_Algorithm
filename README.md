@@ -12,7 +12,7 @@
 - [x] 조합, 부분집합
 - [x] 정렬
 - [ ] 브루트-포스, 보이어-무어, KMP
-- [ ] Tree, List, DisjointSet(Union/Find)
+- [x] Tree, List, DisjointSet(Union/Find)
 - [ ] Graph
 - [x] DFS / BFS
 - [ ] Dijksta, Bellman-Ford
