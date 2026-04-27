@@ -1,6 +1,6 @@
 package week03;
 
-public class PS_신규아이디 {
+public class Solution_PS_신규아이디 {
 
     public String solution(String new_id) {
         String answer = "";

@@ -1,6 +1,6 @@
 package week03;
 
-public class PS_주식가격 {
+public class Solution_PS_주식가격 {
     public int[] solution(int[] prices) {
         int[] answer = new int[prices.length];
         
