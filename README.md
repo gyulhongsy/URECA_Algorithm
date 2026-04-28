@@ -38,4 +38,5 @@
 | 260422(수) | 정렬 개념 정리, 백준 문제 풀이 | [TIL](./doc/week03/Sort.md), [1181](./doc/week03/bj_1181.md), [11650](./doc/week03/bj_11650) |
 | 260423(목) | LinkedList와 ListIterator를 사용한 커서 기능 구현 | [TIL](./doc/week03/Cursur.md) |
 | 260424(금) | 트리 순회 문제 풀이, DisjointSet 정리 | [1991](./doc/week03/bj_1991.md), [TIL](./doc/week03/Union-Find.md) |
+| 260427(월) | 다익스트라 개념 정리, 문제 풀이 | [TIL](./doc/week04/Dijkstra.md) |
 
