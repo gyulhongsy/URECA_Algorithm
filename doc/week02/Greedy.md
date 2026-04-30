@@ -18,6 +18,65 @@
 - 최소 동전 개수
 - 배낭 문제의 일부 케이스
 ---
+# 대표 예제 풀이 - 백준 11047번 동전 0
+
+## 문제
+준규가 가지고 있는 동전은 총 N종류이고, 각각의 동전을 매우 많이 가지고 있다.
+
+동전을 적절히 사용해서 그 가치의 합을 K로 만들려고 한다. 이때 필요한 동전 개수의 최솟값을 구하는 프로그램을 작성하시오.
+
+## 입력
+첫째 줄에 N과 K가 주어진다. (1 <= N <= 10, 1 <= K <= 100,000,000)
+
+둘째 줄부터 N개의 줄의 동전의 가치 A(i)가 오름차순으로 주어진다. (1 <= A <= 1,000,000, A(1) = 1, i >= 2인 경우에 A(i)는 A(i-1)의 배수)
+
+## 출력
+첫째 줄에 K원을 만드는데 필요한 동전 개수의 최솟값을 출력한다.
+
+## 예제 입출력
+<img width="977" height="655" alt="Image" src="https://github.com/user-attachments/assets/211ba787-7180-40a9-a23c-d1be2b293487" />
+
+## 정답 코드 (java)
+```
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+	
+	static int N, K;
+	static int[] money;
+	static int coins = 0;
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		
+		N = Integer.parseInt(st.nextToken());
+		K = Integer.parseInt(st.nextToken());
+		money = new int[N];
+		
+		for (int i = 0; i < N; i++) {
+			money[i] = Integer.parseInt(br.readLine());
+		} // for - insert coins
+		br.close();
+		
+		for (int i = N-1; i >= 0; i--) {
+			if (money[i] <= K) {
+				coins += (K / money[i]);
+				K %= money[i];
+			}
+			if (K <= 0) break;
+		} //for
+		
+		System.out.println(coins);
+	} //main
+}
+
+```
+
+---
 # 회의실 배정 - 백준 문제 풀이
 
 ## 문제
