@@ -1,4 +1,4 @@
-<img width="140" height="76" alt="image" src="https://github.com/user-attachments/assets/0914f33e-0c32-424e-ab9f-b3b8d71e1737" /><img width="254" height="241" alt="image" src="https://github.com/user-attachments/assets/aa0c8301-0348-4fb8-b6c7-9670c2a467ac" /># 백트래킹 (Backtracking)
+# 백트래킹 (Backtracking)
 
 ## 개념
 - 모든 경우를 탐색하는 DFS 기반 알고리즘
