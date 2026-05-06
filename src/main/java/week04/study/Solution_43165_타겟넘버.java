@@ -1,6 +1,6 @@
 package week04.study;
 
-public class Solution_PS_43165_타겟넘버 {
+public class Solution_43165_타겟넘버 {
 	
 	static int answer = 0;
     static int N;
