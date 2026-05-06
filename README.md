@@ -16,7 +16,7 @@
 - [ ] Graph
 - [x] DFS / BFS
 - [x] Dijksta, Bellman-Ford
-- [ ] BackTracking, simulation
+- [x] BackTracking, simulation
 - [ ] Dynamic Programming
 - [x] Greedy
 - [ ] 분할정복
@@ -40,4 +40,6 @@
 | 260424(금) | 트리 순회 문제 풀이, DisjointSet 정리 | [1991](./doc/week03/bj_1991.md), [TIL](./doc/week03/Union-Find.md) |
 | 260427(월) | 다익스트라 개념 정리, 문제 풀이 | [TIL](./doc/week04/Dijkstra.md) |
 | 260428(화) | 벨만포드 개념 정리, 문제 풀이 | [TIL](./doc/week04/BellmanFord.md) |
+| 260429(수) | 백트래킹 / 시뮬레이션 개념 정리, 문제 풀이 | [백트래킹](./doc/week04/Backtracking.md), [시뮬레이션](./doc/week04/Backtracking.md) |
+| 260430(목) | 위상정렬 개념 정리와 문제 풀이, 그리디 문제 풀이 | [위상정렬](_), [11047](_) |
 
