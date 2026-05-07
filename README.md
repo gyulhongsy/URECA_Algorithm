@@ -18,7 +18,7 @@
 - [x] DFS / BFS
 - [x] Dijksta, Bellman-Ford
 - [x] BackTracking, simulation
-- [ ] Dynamic Programming
+- [X] Dynamic Programming
 - [x] Greedy
 - [x] 분할정복
 - [x] MST, Kruskal, Prim
@@ -44,4 +44,5 @@
 | 260429(수) | 백트래킹 / 시뮬레이션 개념 정리, 문제 풀이 | [백트래킹](./doc/week04/Backtracking.md), [시뮬레이션](./doc/week04/Backtracking.md) |
 | 260430(목) | 위상정렬 개념 정리와 문제 풀이, 그리디 문제 풀이 | [위상정렬](./doc/week04/TopologicalSort.md), [11047](./doc/week04/BJ/bj_11047.md) |
 | 260506(수) | 분할 정복, 최소 신장 트리 개념 정리와 문제 풀이 | [분할정복](./doc/week05/DivideConquer.md), [최소신장트리](./doc/week05/mst.md) |
+| 260507(목) | 동적 프로그래밍 개념 정리와 문제 풀이 | [TIL](./doc/week05/DP.md) |
 
