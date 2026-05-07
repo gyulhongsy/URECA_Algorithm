@@ -20,8 +20,8 @@
 - [x] BackTracking, simulation
 - [ ] Dynamic Programming
 - [x] Greedy
-- [ ] 분할정복
-- [ ] MST, Kruskal, Prim
+- [x] 분할정복
+- [x] MST, Kruskal, Prim
 
 ## 학습 기록
 | 날짜 | 내용 | 비고 |
@@ -43,4 +43,5 @@
 | 260428(화) | 벨만포드 개념 정리, 문제 풀이 | [TIL](./doc/week04/BellmanFord.md) |
 | 260429(수) | 백트래킹 / 시뮬레이션 개념 정리, 문제 풀이 | [백트래킹](./doc/week04/Backtracking.md), [시뮬레이션](./doc/week04/Backtracking.md) |
 | 260430(목) | 위상정렬 개념 정리와 문제 풀이, 그리디 문제 풀이 | [위상정렬](./doc/week04/TopologicalSort.md), [11047](./doc/week04/BJ/bj_11047.md) |
+| 260506(수) | 분할 정복, 최소 신장 트리 개념 정리와 문제 풀이 | [분할정복](./doc/week05/DivideConquer.md), [최소신장트리](./doc/week05/mst.md) |
 
