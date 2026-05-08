@@ -1,4 +1,4 @@
-<img width="1204" height="203" alt="image" src="https://github.com/user-attachments/assets/96f6130d-4700-4ad1-884c-44501ba7d95a" /># 동적 프로그래밍 (Dynamic Programming)
+# 동적 프로그래밍 (Dynamic Programming)
 
 ## 개념
 큰 문제를 작은 문제로 나누어 해결하고, 계산한 결과를 저장하여 재사용하는 알고리즘
