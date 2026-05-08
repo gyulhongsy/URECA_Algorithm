@@ -1,4 +1,4 @@
-# 동적 프로그래밍 (Dynamic Programming)
+<img width="1204" height="203" alt="image" src="https://github.com/user-attachments/assets/96f6130d-4700-4ad1-884c-44501ba7d95a" /># 동적 프로그래밍 (Dynamic Programming)
 
 ## 개념
 큰 문제를 작은 문제로 나누어 해결하고, 계산한 결과를 저장하여 재사용하는 알고리즘
@@ -107,7 +107,71 @@ public class Main {
 - 동적 프로그래밍의 개념과 구현에 대한 이해를 할 수 있었다.
 ---
 
-# 예제 문제 풀이 (2) - 백준 12865 평범한 베낭
+# 예제 문제 풀이 (3) - 백준 2294 동전 2
+
+## 문제
+n가지 종류의 동전이 있다. 이 동전들을 적당히 사용해서, 그 가치의 합이 원이 되도록 하고 싶다. 그러면서 동전의 개수가 최소가 되도록 하려고 한다. 각각의 동전은 몇 개라도 사용할 수 있다.
+
+## 입력
+첫째 줄에 n, k가 주어진다. (1≤n ≤ 100, 1 <k ≤ 10,000) 다음 n개의 줄에는 각각의 동전의 가치가 주어진다. 
+동전의 가치는 100,000보다 작거나 같은 자연수이다. 가치가 같은 동전이 여러 번 주어질 수도 있다.
+
+## 출력
+첫째 줄에 사용한 동전의 최소 개수를 출력한다. 불가능한 경우에는 -1을 출력한다.
+
+## 예제 입출력
+<img width="1204" height="203" alt="Image" src="https://github.com/user-attachments/assets/5d01806f-5418-4fd3-81c3-48b187879d75" />
+
+## 정답 코드 (Java)
+```
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.StringTokenizer;
+
+public class Main {
+
+	static int n, k;
+	static int[] coins;
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		
+		n = Integer.parseInt(st.nextToken());
+		k = Integer.parseInt(st.nextToken());
+		coins = new int[n];
+		
+		for (int i = 0; i < n; i++) {
+			coins[i] = Integer.parseInt(br.readLine());
+		} //for - insert coins
+		br.close();
+		
+		int[] dp = new int[k+1];
+		Arrays.fill(dp, Integer.MAX_VALUE);
+		
+		dp[0] = 0;
+		for (int coin : coins) {
+			for (int i = coin; i <= k; i++) {
+				if (dp[i-coin] != Integer.MAX_VALUE) {
+					dp[i] = Math.min(dp[i], dp[i-coin] + 1);
+				} //if - 만들 수 있는 경우에만
+			}
+		} //for - dp
+		
+		if (dp[k] == Integer.MAX_VALUE) System.out.println(-1);
+		else System.out.println(dp[k]);
+	} //main
+}
+```
+
+## 회고
+- 지난번에 그리디 알고리즘에서 풀었던 동전 문제의 개선 버전과 동일하게 풀이했다. 
+
+---
+
+# 예제 문제 풀이 (4) - 백준 12865 평범한 베낭
 
 ### 개념
 제한된 무게 안에서 최대 가치를 구하는 문제
