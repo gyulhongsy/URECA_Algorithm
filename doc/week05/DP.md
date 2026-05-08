@@ -107,7 +107,79 @@ public class Main {
 - 동적 프로그래밍의 개념과 구현에 대한 이해를 할 수 있었다.
 ---
 
-# 예제 문제 풀이 (3) - 백준 2294 동전 2
+# 예제 문제 풀이 (2) - 백준 2579번 계단 오르기
+
+## 문제
+계단 오르기 게임은 계단 아래 시작점부터 계단 꼭대기에 위치한 도착점까지 가는 게임이다. 
+<그림 1>과 같이 각각의 계단에는 일정한 점수가 쓰여 있는데 계단을 밟으면 그 계단에 쓰여 있는 점수를 얻게 된다.
+<img width="440" height="239" alt="Image" src="https://github.com/user-attachments/assets/47fbbe74-daac-4cde-9eb1-77795532011a" />
+예를 들어 <그림 2>와 같이 시작점에서부터 첫 번째, 두 번째, 네 번째, 여섯 번째 계단을 밟아 도착점에 도달하면 총 점수는 10 + 20 + 25 + 20 = 75점이 된다.
+<img width="412" height="248" alt="Image" src="https://github.com/user-attachments/assets/6685e455-2821-4a3d-98c0-a1b212d0cc8b" />
+계단 오르는 데는 다음과 같은 규칙이 있다.
+1. 계단은 한 번에 한 계단씩 또는 두 계단씩 오를 수 있다. 즉, 한 계단을 밟으면서 이어서 다음 계단이나, 다음 다음 계단으로 오를 수 있다.
+2. 연속된 세 개의 계단을 모두 밟아서는 안 된다. 단, 시작점은 계단에 포함되지 않는다.
+3. 마지막 도착 계단은 반드시 밟아야 한다.
+
+따라서 첫 번째 계단을 밟고 이어 두 번째 계단이나, 세 번째 계단으로 오를 수 있다. 하지만, 첫 번째 계단을 밟고 이어 네 번째 계단으로 올라가거나, 
+첫 번째, 두 번째, 세 번째 계단을 연속해서 모두 밟을 수는 없다.
+
+각 계단에 쓰여 있는 점수가 주어질 때 이 게임에서 얻을 수 있는 총 점수의 최댓값을 구하는 프로그램을 작성하시오.
+
+## 입력
+입력의 첫째 줄에 계단의 개수가 주어진다.
+둘째 줄부터 한 줄에 하나씩 제일 아래에 놓인 계단부터 순서대로 각 계단에 쓰여 있는 점수가 주어진다. 
+계단의 개수는 300이하의 자연수이고, 계단에 쓰여 있는 점수는 10,000이하의 자연수이다.
+
+## 출력
+첫째 줄에 계단 오르기 게임에서 얻을 수 있는 총 점수의 최댓값을 출력한다.
+
+## 예제 입출력
+<img width="1210" height="235" alt="Image" src="https://github.com/user-attachments/assets/279905fb-8cb7-4c6e-a920-93676675ecec" />
+
+## 정답 코드 (Java)
+```
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+	
+	static int N;
+	static int[] stairs, dp;
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		N = Integer.parseInt(br.readLine());
+		stairs = new int[N+1];
+		dp = new int[N+1];
+		
+		for (int i = 1; i <= N; i++) { //0번지 버림 (0번째 = 시작점 => 계단이 아님)
+			stairs[i] = Integer.parseInt(br.readLine());
+		} //for - insert stairs
+		br.close();
+		
+		dp[1] = stairs[1];
+		if (N >= 2) dp[2] = stairs[1] + stairs[2];
+		if (N >= 3) dp[3] = Math.max(stairs[1] + stairs[3], stairs[2] + stairs[3]);
+		
+		for (int c = 4; c <= N; c++) { //계단은 3개 연속으로 오를 수 없음
+			//전전 값과 현재 값의 합
+			int a = dp[c-2] + stairs[c];
+			
+			//전전전 값, 전 값, 현재 값의 합
+			int b = dp[c-3] + stairs[c-1] + stairs[c];
+			
+			dp[c] = Math.max(a, b);
+		}//for - dp
+		
+		System.out.println(dp[N]);
+	} //main
+}
+```
+---
+
+# 예제 문제 풀이 (3) - 백준 2294번 동전 2
 
 ## 문제
 n가지 종류의 동전이 있다. 이 동전들을 적당히 사용해서, 그 가치의 합이 원이 되도록 하고 싶다. 그러면서 동전의 개수가 최소가 되도록 하려고 한다. 각각의 동전은 몇 개라도 사용할 수 있다.
@@ -168,15 +240,12 @@ public class Main {
 
 ## 회고
 - 지난번에 그리디 알고리즘에서 풀었던 동전 문제의 개선 버전과 동일하게 풀이했다. 
-
 ---
 
-# 예제 문제 풀이 (4) - 백준 12865 평범한 베낭
+# 예제 문제 풀이 (4) - 백준 12865번 평범한 베낭
 
 ### 개념
 제한된 무게 안에서 최대 가치를 구하는 문제
-
-동전 문제와 달리 하나의 물건은 한 번만 선택 가능
 
 ### 핵심 아이디어
 현재 물건을 넣는다 / 안 넣는다 -> 두 경우를 비교하여 최댓값 선택
@@ -255,4 +324,10 @@ public class Main {
 	} //main
 }
 ```
+
+## 회고
+- dp문제임에도 불구하고 처음에는 그리디 알고리즘처럼 가치가 높은 물건부터 넣으려고 했다.
+- `dp[i-1][w-weight] + value` 의 의미를 이해하는 것이 어려웠지만 예제를 따라가며 이해할 수 있었다.
+- 이전에 풀었던 동전 문제와 비슷하다고 생각했으나 배낭 문제는 물건을 한 번만 사용할 수 있다는 점에서 차이가 있었다.
+- 따라서 현재 상태를 갱신할 때 `dp[i]` 가 아니라 `dp[i-1]` 을 사용한다는 점이 중요했다.
 ---
