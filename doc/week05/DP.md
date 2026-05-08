@@ -48,7 +48,7 @@ DP에서는 현재 상태를 이전 상태로 표현하는 식이 중요하다. 
    - 작은 문제부터 반복문으로 계산
 ---
 
-# 예제 문제 풀이 - 백준 1436번 1로 만들기
+# 예제 문제 풀이 (1) - 백준 1436번 1로 만들기
 
 ## 문제
 정수 X에 사용할 수 있는 연산은 다음과 같이 세 가지 이다.
@@ -105,4 +105,90 @@ public class Main {
 - 처음에 동적 프로그래밍을 생각하지 못해서 단순히 각 조건에 따라 계산하는 식을 작성하였다.
 - 그랬더니 최소 연산 횟수가 나오지 않아 동적 프로그래밍으로 로직을 다시 짜게 되었다.
 - 동적 프로그래밍의 개념과 구현에 대한 이해를 할 수 있었다.
+---
+
+# 예제 문제 풀이 (2) - 백준 12865 평범한 베낭
+
+### 개념
+제한된 무게 안에서 최대 가치를 구하는 문제
+
+동전 문제와 달리 하나의 물건은 한 번만 선택 가능
+
+### 핵심 아이디어
+현재 물건을 넣는다 / 안 넣는다 -> 두 경우를 비교하여 최댓값 선택
+
+### 점화식
+dp[i][w] = i번째 물건까지 고려했을 때 무게 w에서의 최대 가치
+
+## 문제
+이 문제는 아주 평범한 배낭에 관한 문제이다.
+
+한 달 후면 국가의 부름을 받게 되는 준서는 여행을 가려고 한다. 세상과의 단절을 슬퍼하며 최대한 즐기기 위한 여행이기 때문에, 가지고 다닐 배낭 또한 최대한 가치 있게 싸려고 한다.
+
+준서가 여행에 필요하다고 생각하는 N개의 물건이 있다. 각 물건은 무게 W와 가치 V를 가지는데, 해당 물건을 배낭에 넣어서 가면 준서가 V만큼 즐길 수 있다. 
+아직 행군을 해본적이 없는 준서는 최대 K만큼의 무게만을 넣을 수 있는 배낭만 들고 다닐 수 있다. 준서가 최대한 즐거운 여행을 하기 위해 배낭에 넣을 수 있는 물건들의 가치의 최댓값을 알려주자.
+
+## 입력
+첫 줄에 물품의 수 N(1≤ N 100)과 준서가 버틸 수 있는 무게 K(1≤ K 100,000)가 주어진다. 
+두 번째 줄부터 N개의 줄에 거쳐 각 물건의 무게 W(1≤W ≤ 100,000)와 해당물건의 가치 V(0 ≤ V < 1,000)가 주어진다.
+
+입력으로 주어지는 모든 수는 정수이다.
+
+## 출력
+한 줄에 배낭에 넣을 수 있는 물건들의 가치합의 최댓값을 출력한다.
+
+## 예제 입출력
+<img width="966" height="184" alt="Image" src="https://github.com/user-attachments/assets/9e1c85bd-adb4-4557-badd-c7b9288172a8" />
+
+## 정답 코드 (Java)
+```
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+
+	static int N, K;
+	static int[][] items;
+	static int[][] dp;
+		
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine(), "  ");
+		
+		N = Integer.parseInt(st.nextToken()); //물품의 수
+		K = Integer.parseInt(st.nextToken()); //버틸 수 있는 무게
+		
+		items = new int[N+1][2]; //0번지 버림, 무게와 가치 2가지 저장
+		dp = new int[N+1][K+1];
+		
+		for (int i = 1; i <= N; i++) {
+			st = new StringTokenizer(br.readLine(), " ");
+			items[i][0] = Integer.parseInt(st.nextToken());
+			items[i][1] = Integer.parseInt(st.nextToken());
+		} //for - insert items
+		br.close();
+		
+		for (int i = 1; i <= N; i++) {
+			int curWeight = items[i][0];
+			int curValue = items[i][1];
+			
+			for (int w = 1; w <= K; w++) {
+				if (curWeight > w) { //현재 물건을 못 넣는 경우
+					dp[i][w] = dp[i-1][w];
+				} else { //현재 물건을 넣을 수 있는 경우
+					dp[i][w] = Math.max(
+							dp[i-1][w], //안 넣음
+							dp[i-1][w-curWeight] + curValue //넣음
+							//w-curWeight: 현재 넣은 물건 빼고 나머지 무게의 가치를 더함
+					); //Math.max
+				} //if ~ else
+			} //for - w
+		} //for - dp
+		
+		System.out.println(dp[N][K]);
+	} //main
+}
+```
 ---
