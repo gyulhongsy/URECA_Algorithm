@@ -1,14 +1,25 @@
 package study.week05;
 
 public class Solution_258705_산모양타일링 {
-	
-	static final int MOD = 10007;
-	
 	public int solution(int n, int[] tops) {
-        int answer = 0;
+        int MOD = 10007;
         
+        int[] a = new int[n+1];
+        int[] b = new int[n+1];
         
+        a[0] = 1;
+        b[0] = 0;
         
-        return answer;
-    }
+        for (int i = 0; i < n; i++) {
+        	if (tops[i] == 1) {
+        		a[i+1] = (a[i] * 3 + b[i] * 2) % MOD;
+        		b[i+1] = (a[i] + b[i]) % MOD;
+        	} else {
+        		a[i+1] = (a[i] * 2 + b[i]) % MOD;
+        		b[i+1] = (a[i] + b[i]) % MOD;
+        	} //if ~ else
+        } //for
+        
+        return (a[n] + b[n]) % MOD;
+    } //solution
 }
