@@ -23,11 +23,4 @@ public class Solution_LC_TopK {
 
         return answer;
     }
-
-    static void main() {
-        int[] nums = {1,2,1,2,1,2,3,1,3,2};
-        int k = 2;
-
-        System.out.println(topKFrequent(nums, k));
-    }
 }
