@@ -1,20 +1,34 @@
 package study.week10;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Solution_49993_스킬트리 {
     public int solution(String skill, String[] skill_trees) {
         int answer = 0;
 
-        //남길 문자들(스킬)을 제외한 나머지 모든 문자를 찾는 정규식 생성
-        String regex = "[^" + skill + "]";
+        for (String str : skill_trees) {
+            boolean isMatched = true;
+            int prevIdx = -1; //앞선 스킬의 위치
+            boolean isMissed = false; //선행 스킬을 건너뛰었는지 체크
 
-        for (String st : skill_trees) {
+            for (char c : skill.toCharArray()) {
+                int curIdx = str.indexOf(c);
 
-            //스킬트리에서 skill과 상관없는 잡다한 스킬들을 빈 문자열로 치환하여 모두 제거
-            String filtered = st.replaceAll(regex, "");
+                if (curIdx == -1) { //현재 스킬을 안배움
+                    isMissed = true;
+                } else { //현재 스킬을 배움
+                    if (isMissed || curIdx < prevIdx) {
+                        isMatched = false;
+                        break;
+                    } //if - 선행 스킬을 안배웠거나 순서가 바뀜
 
-            //남은 스킬들이 정해진 순서인지 확인
-            if (skill.startsWith(filtered)) answer++;
-        }
+                    prevIdx = curIdx; //무사히 통과 -> 다음 스킬과 비교하기 위해 현재 위치 저장
+                } //if
+            } //for - 스킬 한 글자씩 검사
+
+            if (isMatched) answer++;
+        } //for - 스킬 트리에서 하나씩 검사
 
         return answer;
     }
